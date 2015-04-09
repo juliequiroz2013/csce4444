@@ -44,7 +44,7 @@
             </div>
 
             <div id="indexRightColumn">
-                <div class="categoryBox" background = "${initParam.rootImagePath}Border.png">
+                <div class="categoryBox">
                     <a href="#">
                         <span class="categoryLabelText"><br><br>Appetizers</span>
                     </a>
