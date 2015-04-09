@@ -30,7 +30,7 @@
 
                 </div>
 
-                <a href="#">
+                <a href="index.jsp">
                     <img src="#" id="logo" alt="Party of Four logo">
                 </a>
 
@@ -75,7 +75,7 @@
 
             <div id="footer">
                 <hr>
-                <p id="footerText">[ footer text ]</p>
+                <p id="footerText">Julie Quiroz, Justin Durko, & Travis Allan</p>
             </div>
         </div>
     </body>

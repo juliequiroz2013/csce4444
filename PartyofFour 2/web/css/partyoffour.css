@@ -15,11 +15,11 @@ body {
     margin: 20px auto;
 }
 
-#main { background: #eee }
+#main { background: #f5eabe }
 
 #header {
     height: 250px;
-    background: #aaa;
+    background: #009999;
 }
 
 #logo {
@@ -43,7 +43,7 @@ body {
     height: 50px;
     width: 850px;
     float: right;
-    background: #ccc;
+    background: #f5eabe;
 }
 
 .headerWidget {
@@ -52,14 +52,14 @@ body {
     font-size: small;
     float: right;
     line-height: 25px;
-    background: #aaa;
+    background: #f5eabe;
 }
 
 #footer {
     height: 60px;
     width: 350px;
     clear: left;
-    background: #aaa;
+    background: #009999;
 }
 
 hr {
@@ -69,19 +69,22 @@ hr {
     margin: 0 25px;
     width: 300px;
 }
+#welcometext {
+    text-align: center;
+}
 
 #indexLeftColumn {
     height: 700px;
     width: 350px;
     float: left;
-    background: #ccc;
+    background: #d3ede8;
 }
 
 #indexRightColumn {
     height: 700px;
     width: 500px;
     float: left;
-    background: #eee;
+    background: #f5eabe;
 }
 
 .categoryBox {
@@ -89,6 +92,7 @@ hr {
     width: 212px;
     margin: 21px 14px 6px;
     float: inherit;
+    background-color: #d3ede8;
 }
 
 .categoryLabelText {
@@ -160,7 +164,7 @@ table {
     margin: -34px 180px 0 0;
     font-size: x-large;
     float: right;
-    background-color: #f5eabe;
+    background-color: #b2d2d2;
     padding: 7px;
 }
 

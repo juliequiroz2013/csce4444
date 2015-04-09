@@ -43,7 +43,7 @@
 
                 </div>
 
-                <a href="#">
+                <a href="index.jsp">
                     <img src="#" id="logo" alt="Party of Four logo">
                 </a>
 
@@ -83,7 +83,7 @@
                         <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
                             <td>
                                 <img src="${initParam.productImagePath}${product.name}.png"
-                                    alt="image of ${product.name}">
+                                    alt="image of ${product.name}" style="width: 50%">
                             </td>
                             <td>
                                 ${product.name}
@@ -91,7 +91,7 @@
                                 <span class="smallText">${product.description}</span>
                             </td>
                             <td>
-                                &#36; ${product.amount} / unit
+                                &#36;${product.amount}
                             </td>
                             <td>
                                 <form action="addToCart" method="post">
@@ -111,7 +111,7 @@
 
             <div id="footer">
                 <hr>
-                <p id="footerText">[ footer text ]</p>
+                <p id="footerText">Julie Quiroz, Justin Durko, & Travis Allan</p>
             </div>
         </div>
     </body>
