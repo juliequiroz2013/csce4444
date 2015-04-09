@@ -1,3 +1,4 @@
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : index
     Created on : Apr 7, 2015, 10:09:07 PM
@@ -36,7 +37,10 @@
 
                 <img src="#" id="logoText" alt="Party of Four!">
             </div>
-
+            
+            <sql:query var="categories" dataSource="jdbc/partyoffour">
+                SELECT * FROM category
+            </sql:query>
             <div id="indexLeftColumn">
                 <div id="welcomeText">
                     <p>Welcome to Party of Four! <br>Please view our menu items or play a game!</p>
