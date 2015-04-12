@@ -8,10 +8,6 @@ package cart;
 import entity.Product;
 import java.util.*;
 
-/**
- *
- * @author tgiunipero
- */
 public class ShoppingCart {
 
     List<ShoppingCartItem> items;
@@ -153,17 +149,13 @@ public class ShoppingCart {
      * @param surcharge the designated surcharge for all orders
      * @see ShoppingCartItem
      */
-    public synchronized void calculateTotal(String surcharge) {
-
+    public synchronized void calculateTotal() {
+        
         double amount = 0;
-
+        double s = .0825;
         // cast surcharge as double
-        double s = Double.parseDouble(surcharge);
-
         amount = this.getSubtotal();
-        amount += s;
-
-        total = amount;
+        total = (amount * s) + amount;
     }
 
     /**
@@ -189,9 +181,4 @@ public class ShoppingCart {
         numberOfItems = 0;
         total = 0;
     }
-
-    public void calculateTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
