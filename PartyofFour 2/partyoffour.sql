@@ -22,36 +22,6 @@ CREATE SCHEMA IF NOT EXISTS `partyoffour` DEFAULT CHARACTER SET utf8 COLLATE utf
 USE `partyoffour` ;
 
 -- -----------------------------------------------------
--- Table `partyoffour`.`table`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `partyoffour`.`table` ;
-
-CREATE TABLE IF NOT EXISTS `partyoffour`.`table` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `partyoffour`.`seat`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `partyoffour`.`seat` ;
-
-CREATE TABLE IF NOT EXISTS `partyoffour`.`seat` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `table_id` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_seat_table1_idx` (`table_id` ASC),
-  CONSTRAINT `fk_seat_table1`
-    FOREIGN KEY (`table_id`)
-    REFERENCES `partyoffour`.`table` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'maintains customer details';
-
-
--- -----------------------------------------------------
 -- Table `partyoffour`.`category`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `partyoffour`.`category` ;
@@ -75,12 +45,23 @@ CREATE TABLE IF NOT EXISTS `partyoffour`.`product` (
   `description` TINYTEXT NOT NULL,
   `category_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_product_category_idx` (`category_id` ASC),
+  INDEX `fk_product_category` (`category_id` ASC),
   CONSTRAINT `fk_product_category`
     FOREIGN KEY (`category_id`)
     REFERENCES `partyoffour`.`category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `partyoffour`.`customer`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `partyoffour`.`customer` ;
+
+CREATE TABLE IF NOT EXISTS `partyoffour`.`customer` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -93,12 +74,13 @@ CREATE TABLE IF NOT EXISTS `partyoffour`.`customer_order` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `amount` DECIMAL(6,2) NOT NULL,
   `cookname` VARCHAR(45) NOT NULL,
-  `seat_id` INT UNSIGNED NOT NULL,
+  `customer_id` INT UNSIGNED NOT NULL,
+  `customer_id1` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_customer_order_seat1_idx` (`seat_id` ASC),
-  CONSTRAINT `fk_customer_order_seat1`
-    FOREIGN KEY (`seat_id`)
-    REFERENCES `partyoffour`.`seat` (`id`)
+  INDEX `fk_customer_order_customer` (`customer_id1` ASC),
+  CONSTRAINT `fk_customer_order_customer1`
+    FOREIGN KEY (`customer_id1`)
+    REFERENCES `partyoffour`.`customer` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -114,8 +96,8 @@ CREATE TABLE IF NOT EXISTS `partyoffour`.`ordered_product` (
   `product_id` INT UNSIGNED NOT NULL,
   `quantity` INT UNSIGNED NOT NULL DEFAULT 1,
   PRIMARY KEY (`customer_order_id`, `product_id`),
-  INDEX `fk_customer_order_has_product_product1_idx` (`product_id` ASC),
-  INDEX `fk_customer_order_has_product_customer_order1_idx` (`customer_order_id` ASC),
+  INDEX `fk_ordered_product_product` (`product_id` ASC),
+  INDEX `fk_ordered_product_customer_order` (`customer_order_id` ASC),
   CONSTRAINT `fk_ordered_product_customer_order`
     FOREIGN KEY (`customer_order_id`)
     REFERENCES `partyoffour`.`customer_order` (`id`)
