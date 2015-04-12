@@ -7,34 +7,30 @@
 
                 <h2>checkout</h2>
 
-                <p>[ text ]</p>
+                <p>Push submit to send your order to the kitchen</p>
 
                 <form action="purchase" method="post">
 
                     <table id="checkoutTable">
                         <tr>
-                            <td>[ form containing fields to
-                                <br>capture customer details ]</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                        </tr>
-                        <tr>
                             <td><input type="submit" value="submit button"></td>
                         </tr>
-
                     </table>
 
                 </form>
 
                 <div id="infoBox">
-
-                    <div style="border: black solid 1px; height:100px; padding: 10px">
-                        [ purchase conditions ]
-                    </div>
-
-                    <div id="priceBox">
-                        [ purchase calculations:<br>subtotal + tip ]
-                    </div>
+                    <table id="priceBox">
+                        <tr>
+                            <td>subtotal:</td>
+                            <td class="checkoutPriceColumn">
+                                &#36;${cart.subtotal}</td>
+                        </tr>
+                        <tr>
+                            <td class="total">total:</td>
+                            <td class="total checkoutPriceColumn">
+                                &#36;${cart.total}</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
