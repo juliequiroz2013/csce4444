@@ -3,10 +3,6 @@
     Created on : Apr 7, 2015, 10:04:50 PM
     Author     : Julie
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
             <div id="centerColumn">
 
                 <h2>checkout</h2>

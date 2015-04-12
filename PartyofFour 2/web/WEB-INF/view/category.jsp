@@ -17,8 +17,6 @@
     SELECT * FROM product WHERE category_id = ?
     <sql:param value="${pageContext.request.queryString}"/>
 </sql:query>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 
             <div id="categoryLeftColumn">
                 <c:forEach var="category" items="${categories.rows}">
