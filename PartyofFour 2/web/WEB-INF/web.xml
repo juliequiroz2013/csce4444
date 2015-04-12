@@ -15,6 +15,15 @@
             30
         </session-timeout>
     </session-config>
+    <jsp-config>
+        <jsp-property-group>
+            <description>header and footer settings</description>
+            <url-pattern>/index.jsp</url-pattern>
+            <url-pattern>/WEB-INF/view/*</url-pattern>
+            <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
+            <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
+        </jsp-property-group>
+    </jsp-config>
     <resource-ref>
         <description>Connects to database for Party of Four application</description>
         <res-ref-name>jdbc/partyoffour</res-ref-name>
