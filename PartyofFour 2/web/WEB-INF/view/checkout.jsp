@@ -34,7 +34,7 @@
                     </div>
 
                     <div id="priceBox">
-                        [ purchase calculations:<br>subtotal + delivery charge ]
+                        [ purchase calculations:<br>subtotal + tip ]
                     </div>
                 </div>
             </div>
