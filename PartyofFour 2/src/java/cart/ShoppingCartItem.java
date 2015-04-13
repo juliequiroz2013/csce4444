@@ -7,10 +7,6 @@ package cart;
 
 import entity.Product;
 
-/**
- *
- * @author tgiunipero
- */
 public class ShoppingCartItem {
 
     Product product;

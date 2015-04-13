@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import session.CategoryFacade;
+import session.OrderManager;
 import session.ProductFacade;
 
 /**
@@ -33,6 +34,8 @@ public class ControllerServlet extends HttpServlet {
     private CategoryFacade categoryFacade;
     @EJB
     private ProductFacade productFacade;
+    @EJB
+    private OrderManager orderManager;
     
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
@@ -163,9 +166,12 @@ public class ControllerServlet extends HttpServlet {
                     break;
             }
             case "/purchase":
-                // TODO: Implement purchase action
+                if (cart != null) {
+                    String name = request.getParameter("name");
+                    int orderId = orderManager.placeOrder(name, cart);
+                }
 
-            userPath = "/confirmation";
+                userPath = "/confirmation";
                 break;
         }
 

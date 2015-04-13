@@ -66,14 +66,12 @@
           <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
             <td>
               <img src="${initParam.productImagePath}${product.name}.png"
-                   alt="${product.name}">
+                   alt="${product.name}" style="width: 50%">
             </td>
 
             <td>${product.name}</td>
 
             <td>
-                &#36;${cartItem.total}
-                <br>
                 <span class="smallText">( &#36;${product.amount})</span>
             </td>
 

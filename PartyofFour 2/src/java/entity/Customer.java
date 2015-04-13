@@ -30,7 +30,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c"),
-    @NamedQuery(name = "Customer.findById", query = "SELECT c FROM Customer c WHERE c.id = :id")})
+    @NamedQuery(name = "Customer.findById", query = "SELECT c FROM Customer c WHERE c.id = :id"),
+    @NamedQuery(name = "Customer.findByName", query = "SELECT c FROM Customer c WHERE c.name = :name")})
 public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -38,6 +39,9 @@ public class Customer implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Basic(optional = false)
+    @Column(name = "name")
+    private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId1")
     private Collection<CustomerOrder> customerOrderCollection;
 
@@ -48,6 +52,11 @@ public class Customer implements Serializable {
         this.id = id;
     }
 
+    public Customer(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -89,5 +98,12 @@ public class Customer implements Serializable {
     public String toString() {
         return "entity.Customer[ id=" + id + " ]";
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
+    public String getName() {
+        return name;
+    }
 }

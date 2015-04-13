@@ -13,6 +13,17 @@
 
                     <table id="checkoutTable">
                         <tr>
+                            <td><label for="name">name:</label></td>
+                            <td class="inputField">
+                                <input type="text"
+                                       size="31"
+                                       maxlength="45"
+                                       id="name"
+                                       name="name"
+                                       value="${param.name}">
+                            </td>
+                        </tr>
+                        <tr>
                             <td><input type="submit" value="submit button"></td>
                         </tr>
                     </table>
