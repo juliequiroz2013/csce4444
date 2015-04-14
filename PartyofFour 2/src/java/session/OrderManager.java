@@ -11,14 +11,9 @@ import entity.Customer;
 import entity.CustomerOrder;
 import entity.OrderedProduct;
 import entity.OrderedProductPK;
-import entity.Product;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.annotation.Resource;
-import javax.ejb.EJB;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -30,15 +25,21 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class OrderManager {
-
     @PersistenceContext(unitName = "PartyofFourPU")
     private EntityManager em;
+    @Resource
+    private SessionContext context;
     
     public int placeOrder(String name, ShoppingCart cart) {
+        try {
         Customer customer = addCustomer(name);
         CustomerOrder order = addOrder(customer, cart);
         addOrderedItems(order, cart);
         return order.getId();
+        } catch (Exception e) {
+            context.setRollbackOnly();
+            return 0;
+        }
     }
     
     private Customer addCustomer(String name) {
@@ -53,15 +54,12 @@ public class OrderManager {
         CustomerOrder order = new CustomerOrder();
         order.setCustomer(customer);
         order.setAmount(BigDecimal.valueOf(cart.getTotal()));
-        
         em.persist(order);
         return order;
     }
 
     private void addOrderedItems(CustomerOrder order, ShoppingCart cart) {
-        
         em.flush();
-        
         List<ShoppingCartItem> items = cart.getItems();
 
         // iterate through shopping cart and create OrderedProducts
@@ -79,7 +77,6 @@ public class OrderManager {
 
             // set quantity
             orderedItem.setQuantity(scItem.getQuantity());
-            
             em.persist(orderedItem);
         }
     }
