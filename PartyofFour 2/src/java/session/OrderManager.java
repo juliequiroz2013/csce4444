@@ -30,27 +30,15 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class OrderManager {
+
     @PersistenceContext(unitName = "PartyofFourPU")
     private EntityManager em;
-    @Resource
-    private SessionContext context;
-    @EJB
-    private ProductFacade productFacade;
-    @EJB
-    private CustomerOrderFacade customerOrderFacade;
-    @EJB
-    private OrderedProductFacade orderedProductFacade;
     
     public int placeOrder(String name, ShoppingCart cart) {
-        try {
-            Customer customer = addCustomer(name);
-            CustomerOrder order = addOrder(customer, cart);
-            addOrderedItems(order, cart);
-            return order.getId();
-        } catch (Exception e) {
-            context.setRollbackOnly();
-            return 0;
-        }
+        Customer customer = addCustomer(name);
+        CustomerOrder order = addOrder(customer, cart);
+        addOrderedItems(order, cart);
+        return order.getId();
     }
     
     private Customer addCustomer(String name) {
@@ -65,6 +53,7 @@ public class OrderManager {
         CustomerOrder order = new CustomerOrder();
         order.setCustomer(customer);
         order.setAmount(BigDecimal.valueOf(cart.getTotal()));
+        
         em.persist(order);
         return order;
     }
@@ -90,39 +79,9 @@ public class OrderManager {
 
             // set quantity
             orderedItem.setQuantity(scItem.getQuantity());
+            
             em.persist(orderedItem);
         }
-    }
-    
-    public Map getOrderDetails(int orderId) {
-
-        Map orderMap = new HashMap();
-
-        // get order
-        CustomerOrder order = customerOrderFacade.find(orderId);
-
-        // get customer
-        Customer customer = order.getCustomer();
-
-        // get all ordered products
-        List<OrderedProduct> orderedProducts = orderedProductFacade.findByOrderId(orderId);
-
-        // get product details for ordered items
-        List<Product> products = new ArrayList<Product>();
-
-        for (OrderedProduct op : orderedProducts) {
-
-            Product p = (Product) productFacade.find(op.getOrderedProductPK().getProductId());
-            products.add(p);
-        }
-
-        // add each item to orderMap
-        orderMap.put("orderRecord", order);
-        orderMap.put("customer", customer);
-        orderMap.put("orderedProducts", orderedProducts);
-        orderMap.put("products", products);
-
-        return orderMap;
     }
     
 }

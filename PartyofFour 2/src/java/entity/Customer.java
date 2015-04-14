@@ -18,6 +18,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -40,6 +42,8 @@ public class Customer implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "name")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId1")
@@ -56,13 +60,21 @@ public class Customer implements Serializable {
         this.id = id;
         this.name = name;
     }
-    
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @XmlTransient
@@ -98,12 +110,5 @@ public class Customer implements Serializable {
     public String toString() {
         return "entity.Customer[ id=" + id + " ]";
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
     
-    public String getName() {
-        return name;
-    }
 }

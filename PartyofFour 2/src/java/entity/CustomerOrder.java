@@ -46,9 +46,7 @@ public class CustomerOrder implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
-    @NotNull
     @Column(name = "amount")
     private BigDecimal amount;
     @Basic(optional = false)
@@ -57,7 +55,6 @@ public class CustomerOrder implements Serializable {
     @Column(name = "cookname")
     private String cookname;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "customer_id")
     private int customerId;
     @JoinColumn(name = "customer_id1", referencedColumnName = "id")
@@ -65,6 +62,7 @@ public class CustomerOrder implements Serializable {
     private Customer customerId1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerOrder")
     private Collection<OrderedProduct> orderedProductCollection;
+    private Customer customer;
 
     public CustomerOrder() {
     }
@@ -155,11 +153,8 @@ public class CustomerOrder implements Serializable {
     }
 
     public void setCustomer(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.customer = customer;
     }
-
-    public Customer getCustomer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
 }
