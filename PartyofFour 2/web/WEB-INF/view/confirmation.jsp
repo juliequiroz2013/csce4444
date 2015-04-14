@@ -2,6 +2,7 @@
     Document   : confirmation
     Created on : Apr 7, 2015, 10:05:12 PM
     Author     : Julie
+    This is the bug that could not be solved. The confirmation portion was supposed to display the submitted cart items to the kitchen for viewing. The presets of Netbeans was not allowing for this to happen.
 --%>
 
 <div id="singleColumn">

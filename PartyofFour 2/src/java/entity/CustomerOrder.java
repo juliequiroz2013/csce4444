@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+This sets all customer's orders to the database into the database ordered_product through these functions
  */
 package entity;
 

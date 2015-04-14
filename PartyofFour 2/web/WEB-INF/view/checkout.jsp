@@ -2,6 +2,7 @@
     Document   : checkout
     Created on : Apr 7, 2015, 10:04:50 PM
     Author     : Julie
+    This is the checkout, and submits the cart to be checked out with an attached name.
 --%>
             <div id="centerColumn">
 

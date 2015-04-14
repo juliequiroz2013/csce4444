@@ -4,20 +4,9 @@
     Document   : category
     Created on : Apr 7, 2015, 10:04:23 PM
     Author     : Julie
+    This is the categories file, that show the menu items and their descriptions and their descriptions with Add to Cart capabilities.
 --%>
-
-<%--<sql:query var="categories" dataSource="jdbc/partyoffour">
-    SELECT * FROM category
-</sql:query>
-<sql:query var="selectedCategory" dataSource="jdbc/partyoffour">
-    SELECT name FROM category WHERE id = ?
-    <sql:param value="${pageContext.request.queryString}"/>
-</sql:query>
-<sql:query var="categoryProducts" dataSource="jdbc/partyoffour">
-    SELECT * FROM product WHERE category_id = ?
-    <sql:param value="${pageContext.request.queryString}"/>
-</sql:query>--%>
-
+<!--            This is the left column where the categories are able to switch from one to another-->
             <div id="categoryLeftColumn">
                 <c:forEach var="category" items="${categories}">
 

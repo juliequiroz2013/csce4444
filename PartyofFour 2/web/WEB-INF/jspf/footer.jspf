@@ -1,3 +1,5 @@
+<!--Footer, shows up on each page of the application-->
+
 <%@ page pageEncoding="UTF-8" %>
 
             <div id="footer">

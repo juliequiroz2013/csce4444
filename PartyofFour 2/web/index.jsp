@@ -4,10 +4,8 @@
     Document   : index
     Created on : Apr 7, 2015, 10:09:07 PM
     Author     : Julie
+    This is the home page that shows each category to the user to show their menu items within.
 --%>
-<%--<sql:query var="categories" dataSource="jdbc/partyoffour">
-    SELECT * FROM category
-</sql:query>--%>
 
             <div id="indexLeftColumn">
                 <div id="welcomeText">
@@ -15,6 +13,7 @@
                 </div>
             </div>
 
+<!--            Shows categories and takes them to their links-->
             <div id="indexRightColumn">
                 <c:forEach var="category" items="${categories}">
                     <div class="categoryBox">

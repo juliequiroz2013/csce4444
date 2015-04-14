@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+Controlls the shopping cart to add item, update, get totals, and show items.
  */
 
 package cart;

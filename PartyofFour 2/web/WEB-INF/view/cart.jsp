@@ -2,6 +2,7 @@
     Document   : cart
     Created on : Apr 7, 2015, 10:04:39 PM
     Author     : Julie
+    This cart function, shows menu items added and their prices. Allows for updating quantity and such.
 --%>
 
 <div id="singleColumn">
