@@ -1,5 +1,5 @@
 /*
-Controls certain functions that lead to 
+Controls the roots to other areas of the project. such as goes to the category page, view cart page, make a purchase, etc.
  */
 package controller;
 
