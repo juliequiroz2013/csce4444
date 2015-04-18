@@ -63,6 +63,7 @@ public class CustomerOrder implements Serializable {
     private Customer customerId1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerOrder")
     private Collection<OrderedProduct> orderedProductCollection;
+    private Customer customer;
 
     public CustomerOrder() {
     }
@@ -153,7 +154,7 @@ public class CustomerOrder implements Serializable {
     }
 
     public void setCustomer(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.customer = customer;
     }
     
 }

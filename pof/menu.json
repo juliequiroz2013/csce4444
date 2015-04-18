@@ -1,0 +1,82 @@
+{
+  "Appetizers": [
+    {
+      "item": "Chips & Salsa",
+      "categoryDescription": "Tomato, jalapeno, cilantro, onion, & tortilla chips",
+      "calories": 101,
+      "price": 5.00
+    },
+    {
+      "item": "Buffalo Wings",
+      "categoryDescription": "Buffalo sauce & chicken wings",
+      "calories": 288,
+      "price": 4.00
+    },
+    {
+      "item": "Garden Salad",
+      "categoryDescription": "Lettuce, tomato, carrot, cucumber, & dressing",
+      "calories": 108,
+      "price": 3.00
+    }
+  ],
+  "Entrees": [
+    {
+      "item": "Seafood Alfredo",
+      "categoryDescription": "Parmesan cheese, butter, alfredo sauce, fettuccine pasta, and shrimp",
+      "calories": 300,
+      "price": 12.00
+    },
+    {
+      "item": "Chicken Strips & Fries",
+      "categoryDescription": "Fried sliced chicken breast with potato fries",
+      "calories": 300,
+      "price": 10.00
+    },
+    {
+      "item": "Burger & Fries",
+      "categoryDescription": "Beef patty, lettuce, tomato, mayo, & american cheese",
+      "calories": 300,
+      "price": 10.00
+    }
+  ],
+  "Desserts": [
+    {
+      "item": "Cheesecake",
+      "categoryDescription": "A crumbly graham cracker crust and silky cream cheese filling",
+      "calories": 100,
+      "price": 5.00
+    },
+    {
+      "item": "Brownie & Ice Cream",
+      "categoryDescription": "Fudge chocolate brownie & vanilla ice cream",
+      "calories": 100,
+      "price": 4.00
+    }
+  ],
+  "Drinks": [
+    {
+      "item": "Water",
+      "categoryDescription": "",
+      "calories": 0,
+      "price": 0.00
+    },
+    {
+      "item": "Tea",
+      "categoryDescription": "",
+      "calories": 100,
+      "price": 2.00
+    },
+    {
+      "item": "Coke",
+      "categoryDescription": "",
+      "calories": 100,
+      "price": 2.00
+    },
+    {
+      "item": "Diet Coke",
+      "categoryDescription": "",
+      "calories": 100,
+      "price": 2.00
+    }
+  ]
+}

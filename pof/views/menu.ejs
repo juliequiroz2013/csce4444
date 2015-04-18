@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+<% include templates/header.ejs%>
+    <h1><%= title %></h1>
+
+    <h3>Appetizers</h3>
+    <% menuitems.Appetizers.forEach(function(food) { %>
+        <li><%= food.item %></li>
+        <ul>
+            <li>Description: <%= food.categoryDescription %></li><br>
+            <li>Calories: <%= food.calories %></li><br>
+            <li>Price: <%= food.price %></li><br>
+        </ul>
+    <% }); %>
+
+    <h3>Entrees</h3>
+    <% menuitems.Entrees.forEach(function(food) { %>
+    <li><%= food.item %></li>
+    <ul>
+        <li>Description: <%= food.categoryDescription %></li><br>
+        <li>Calories: <%= food.calories %></li><br>
+        <li>Price: <%= food.price %></li><br>
+    </ul>
+    <% }); %>
+
+    <h3>Desserts</h3>
+    <% menuitems.Desserts.forEach(function(food) { %>
+    <li><%= food.item %></li>
+    <ul>
+        <li>Description: <%= food.categoryDescription %></li><br>
+        <li>Calories: <%= food.calories %></li><br>
+        <li>Price: <%= food.price %></li><br>
+    </ul>
+    <% }); %>
+
+    <h3>Drinks</h3>
+    <% menuitems.Drinks.forEach(function(food) { %>
+    <li><%= food.item %></li>
+    <ul>
+        <li>Calories: <%= food.calories %></li><br>
+        <li>Price: <%= food.price %></li><br>
+    </ul>
+    <% }); %>
+</body>
+</html>
