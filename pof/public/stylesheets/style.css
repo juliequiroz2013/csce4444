@@ -31,3 +31,9 @@ h1{
 .pull-left {
   float: left;
 }
+
+img.dallas {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

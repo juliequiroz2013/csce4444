@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<% include templates/header.ejs%>
+<% include templates/header.ejs %>
     <h1><%= title %></h1>
 
     <h3>Appetizers</h3>
@@ -44,7 +44,12 @@
     <li><%= food.item %></li>
     <ul>
         <li>Calories: <%= food.calories %></li><br>
-        <li>Price: <%= food.price %></li><br>
+        <% var today = new Date().getHours();%>
+        <% if(today >= 16 && today <= 19){ %>
+            <li>Price: <%= food.price/2 %></li><br>
+        <% } else {%>
+            <li>Price: <%= food.price %></li><br>
+        <% } %>
     </ul>
     <% }); %>
 </body>
