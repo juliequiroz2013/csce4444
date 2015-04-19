@@ -1,0 +1,16 @@
+{
+  "cart": [
+    {
+      "fooditem": "Water",
+      "price": "0"
+    },
+    {
+      "fooditem": "Tea",
+      "price": "1"
+    },
+    {
+      "fooditem": "Cheesecake",
+      "price": "5"
+    }
+  ]
+}
