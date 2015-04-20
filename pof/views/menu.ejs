@@ -3,6 +3,8 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> <!-- So you need jquery to do the ajax command make sure this is in all ejs files -->
     <script src='./javascripts/menu.js' type="text/javascript"></script>
     <script>
@@ -16,7 +18,9 @@
 
 <% include templates/header.ejs %>
     <h1><%= title %></h1>
-
+    <h2><input id="addtocart" type="button" value="Here?" onclick="heretogo('HERE')" />
+    or
+    <input id="addtocart" type="button" value="To-Go?" onclick="heretogo('TO GO')" /></h2>
     <h3>Appetizers</h3>
     <% menuitems.Appetizers.forEach(function(food) { %>
         <li><%= food.item %></li>
@@ -30,6 +34,17 @@
 
     <h3>Entrees</h3>
     <% menuitems.Entrees.forEach(function(food) { %>
+    <li><%= food.item %></li>
+    <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+    <ul>
+        <li>Description: <%= food.categoryDescription %></li><br>
+        <li>Calories: <%= food.calories %></li><br>
+        <li>Price: <%= food.price %></li><br>
+    </ul>
+    <% }); %>
+
+    <h3>Kid Meals</h3>
+    <% menuitems.Kids.forEach(function(food) { %>
     <li><%= food.item %></li>
     <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
     <ul>

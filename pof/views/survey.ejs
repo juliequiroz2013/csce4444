@@ -3,11 +3,50 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 </head>
 <body>
 
 <% include templates/header.ejs%>
 <h1><%= title %></h1>
-<p style = "text-align: center;">Welcome!</p>
+
+<form>
+    <h3>Rate your visit to Party of Four:</h3>
+    <input type="radio" name="rate" value="1" checked>1
+    <input type="radio" name="rate" value="2">2
+    <input type="radio" name="rate" value="3">3
+    <input type="radio" name="rate" value="4">4
+    <input type="radio" name="rate" value="5">5
+</form>
+<form>
+    <h3>Rate the service you received:</h3>
+    <input type="radio" name="rate" value="1" checked>1
+    <input type="radio" name="rate" value="2">2
+    <input type="radio" name="rate" value="3">3
+    <input type="radio" name="rate" value="4">4
+    <input type="radio" name="rate" value="5">5
+</form>
+<form>
+    <h3>Rate the food quality:</h3>
+    <input type="radio" name="rate" value="1" checked>1
+    <input type="radio" name="rate" value="2">2
+    <input type="radio" name="rate" value="3">3
+    <input type="radio" name="rate" value="4">4
+    <input type="radio" name="rate" value="5">5
+</form>
+<form>
+    <h3>Rate the Party of Four atmosphere:</h3>
+    <input type="radio" name="rate" value="1" checked>1
+    <input type="radio" name="rate" value="2">2
+    <input type="radio" name="rate" value="3">3
+    <input type="radio" name="rate" value="4">4
+    <input type="radio" name="rate" value="5">5
+</form>
+<form>
+    <h3>Will you come again?</h3>
+    <input type="radio" name="rate" value="yes" checked>yes
+    <input type="radio" name="rate" value="no">no
+</form>
 </body>
 </html>

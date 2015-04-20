@@ -9,7 +9,7 @@ var menu = require('./routes/menu');
 var games = require('./routes/games');
 var pay = require('./routes/pay');
 var survey = require('./routes/survey');
-var cart = require('./routes/cart');
+var header  = require('./routes/header');
 
 var app = express();
 
@@ -32,7 +32,7 @@ app.use('/menu', menu);
 app.use('/games', games);
 app.use('/pay', pay);
 app.use('/survey', survey);
-app.use('/cart', cart);
+app.use('/header', header);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

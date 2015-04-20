@@ -39,6 +39,20 @@
       "price": 10.00
     }
   ],
+  "Kids": [
+    {
+      "item": "Pepperoni Pizza",
+      "categoryDescription": "A small cheesy pepperoni pizza",
+      "calories": 200,
+      "price": 5.00
+    },
+    {
+      "item": "Chicken Nuggets & Fries",
+      "categoryDescription": "6 white meat chicken nuggets with fries",
+      "calories": 200,
+      "price": 5.00
+    }
+  ],
   "Desserts": [
     {
       "item": "Cheesecake",

@@ -22,3 +22,49 @@ function addItem(item, price) {
     });
 }
 
+function heretogo(answer) {
+    var where = answer;
+    customerCart.where = where;
+    console.log(answer);
+    var stringCart = JSON.stringify(customerCart);
+    $.ajax({
+        type: 'POST',
+        data: stringCart,
+        url: './menu/addItem',
+        contentType: 'application/json',
+        success: function (returnCart) { //I usually just return to in case there is an error even if the cart is updated
+            customerCart = returnCart;
+        }
+    });
+}
+
+
+function drinkrefill() {
+    customerCart.refill = 1;
+    console.log(refill);
+    var stringCart = JSON.stringify(customerCart);
+    $.ajax({
+        type: 'POST',
+        data: stringCart,
+        url: './header/addItem',
+        contentType: 'application/json',
+        success: function (returnCart) { //I usually just return to in case there is an error even if the cart is updated
+            customerCart = returnCart;
+        }
+    });
+}
+
+function assist() {
+    customerCart.assist = 1;
+    console.log(refill);
+    var stringCart = JSON.stringify(customerCart);
+    $.ajax({
+        type: 'POST',
+        data: stringCart,
+        url: './header/addItem',
+        contentType: 'application/json',
+        success: function (returnCart) { //I usually just return to in case there is an error even if the cart is updated
+            customerCart = returnCart;
+        }
+    });
+}

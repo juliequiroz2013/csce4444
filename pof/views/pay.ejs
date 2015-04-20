@@ -3,11 +3,51 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script>
+        var customerCart = <%- JSON.stringify(customerCart) %>;
+    </script>
 </head>
 <body>
 
 <% include templates/header.ejs%>
+<script>var total = 0;</script>
 <h1><%= title %></h1>
-<p style = "text-align: center;">Welcome!</p>
+<% customerCart.cart.forEach(function(food) { %>
+    <li><%= food.fooditem %></li>
+    <ul><li>Price: <%= food.price %></li></ul><br>
+    <script>total = total + <%-food.price%> </script>
+<% }); %>
+
+<h3>Subtotal: <script> document.write(total); </script></h3>
+<script>var tax = total * .0825;</script>
+<h4>Tax : <script> document.write(tax.toFixed(2)); </script></h4>
+
+
+<h4>Tip:
+<button onclick="ten()">10%</button>
+<button onclick="fifteen()">15%</button>
+<button onclick="twenty()">20%</button>
+</h4>
+<script>
+    function ten(){
+        total = (total*.1) + total;
+        document.getElementById("totaled").innerHTML = total.toFixed(2);
+    }
+    function fifteen(){
+        total = (total*.15) + total;
+        document.getElementById("totaled").innerHTML = total.toFixed(2);
+    }
+    function twenty(){
+        total = (total*.2) + total;
+        document.getElementById("totaled").innerHTML = total.toFixed(2);
+    }
+</script>
+
+<script>total = total + tax;</script>
+<h2>Total: </h2>
+<h2 id = "totaled"><script> document.write(total.toFixed(2));</script></h2>
 </body>
 </html>
