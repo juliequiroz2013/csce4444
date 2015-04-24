@@ -22,67 +22,92 @@
     or
     <input id="addtocart" type="button" value="To-Go?" onclick="heretogo('TO GO')" /></h2>
     <h3>Appetizers</h3>
-    <% menuitems.Appetizers.forEach(function(food) { %>
-        <li><%= food.item %></li>
-        <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
-        <ul>
-            <li>Description: <%= food.categoryDescription %></li><br>
-            <li>Calories: <%= food.calories %></li><br>
-            <li>Price: <%= food.price %></li><br>
-        </ul>
-    <% }); %>
+    <div class="row">
+        <% menuitems.Appetizers.forEach(function(food) { %>
+            <div class="col-md-4">
+                <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+                <%= food.item %>
+                <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+                <ul>
+                    <li>Description: <%= food.categoryDescription %></li><br>
+                    <li>Calories: <%= food.calories %></li><br>
+                    <li>Price: <%= food.price %></li><br>
+                </ul>
+            </div>
+        <% }); %>
+    </div>
 
     <h3>Entrees</h3>
-    <% menuitems.Entrees.forEach(function(food) { %>
-    <li><%= food.item %></li>
-    <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
-    <ul>
-        <li>Description: <%= food.categoryDescription %></li><br>
-        <li>Calories: <%= food.calories %></li><br>
-        <li>Price: <%= food.price %></li><br>
-    </ul>
-    <% }); %>
+    <div class="row">
+        <% menuitems.Entrees.forEach(function(food) { %>
+        <div class="col-md-4">
+            <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+            <%= food.item %>
+            <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+            <ul>
+                <li>Description: <%= food.categoryDescription %></li><br>
+                <li>Calories: <%= food.calories %></li><br>
+                <li>Price: <%= food.price %></li><br>
+            </ul>
+        </div>
+        <% }); %>
+    </div>
 
     <h3>Kid Meals</h3>
-    <% menuitems.Kids.forEach(function(food) { %>
-    <li><%= food.item %></li>
-    <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
-    <ul>
-        <li>Description: <%= food.categoryDescription %></li><br>
-        <li>Calories: <%= food.calories %></li><br>
-        <li>Price: <%= food.price %></li><br>
-    </ul>
-    <% }); %>
+    <div class="row">
+        <% menuitems.Kids.forEach(function(food) { %>
+        <div class="col-md-4">
+            <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+            <li><%= food.item %></li>
+            <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+            <ul>
+                <li>Description: <%= food.categoryDescription %></li><br>
+                <li>Calories: <%= food.calories %></li><br>
+                <li>Price: <%= food.price %></li><br>
+            </ul>
+        </div>
+        <% }); %>
+    </div>
 
     <h3>Desserts</h3>
-    <% menuitems.Desserts.forEach(function(food) { %>
-    <li><%= food.item %></li>
-    <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
-    <ul>
-        <li>Description: <%= food.categoryDescription %></li><br>
-        <li>Calories: <%= food.calories %></li><br>
-        <li>Price: <%= food.price %></li><br>
-    </ul>
+    <div class="row">
+        <% menuitems.Desserts.forEach(function(food) { %>
+        <div class="col-md-4">
+            <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+            <li><%= food.item %></li>
+            <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+            <ul>
+                <li>Description: <%= food.categoryDescription %></li><br>
+                <li>Calories: <%= food.calories %></li><br>
+                <li>Price: <%= food.price %></li><br>
+            </ul>
+        </div>
     <% }); %>
+    </div>
 
     <h3>Drinks</h3>
-    <% menuitems.Drinks.forEach(function(food) { %>
-    <li><%= food.item %></li>
-    <% var today = new Date().getHours();%>
-    <% if(today >= 16 && today <= 19){ %>
-        <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price/2 %>')" />
-    <% } else {%>
-        <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
-    <% } %>
-    <ul>
-        <li>Calories: <%= food.calories %></li><br>
-        <% var today = new Date().getHours();%>
-        <% if(today >= 16 && today <= 19){ %>
-            <li>Price: <%= food.price/2 %></li><br>
-        <% } else {%>
-            <li>Price: <%= food.price %></li><br>
-        <% } %>
-    </ul>
-    <% }); %>
+    <div class="row">
+        <% menuitems.Drinks.forEach(function(food) { %>
+        <div class="col-md-3">
+            <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+            <li><%= food.item %></li>
+            <% var today = new Date().getHours();%>
+            <% if(today >= 16 && today <= 19){ %>
+                <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price/2 %>')" />
+            <% } else {%>
+                <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+            <% } %>
+            <ul>
+                <li>Calories: <%= food.calories %></li><br>
+                <% var today = new Date().getHours();%>
+                <% if(today >= 16 && today <= 19){ %>
+                    <li>Price: <%= food.price/2 %></li><br>
+                <% } else {%>
+                    <li>Price: <%= food.price %></li><br>
+                <% } %>
+            </ul>
+        </div>
+        <% }); %>
+    </div>
 </body>
 </html>

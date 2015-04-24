@@ -27,9 +27,13 @@
 
 
 <h4>Tip:
-<button onclick="ten()">10%</button>
-<button onclick="fifteen()">15%</button>
-<button onclick="twenty()">20%</button>
+    <button onclick="ten()">10%</button>
+    <button onclick="fifteen()">15%</button>
+    <button onclick="twenty()">20%</button>
+    <form>Enter amount:
+        <input type="number" id="tip" name="tip" min="0" step="any"/>
+        <input type="button" value="Submit" onClick="setTip(document.getElementById('tip').value)"/>
+    </form>
 </h4>
 <script>
     function ten(){
@@ -42,6 +46,10 @@
     }
     function twenty(){
         total = (total*.2) + total;
+        document.getElementById("totaled").innerHTML = total.toFixed(2);
+    }
+    function setTip(tip){
+        total = Number(tip) + total;
         document.getElementById("totaled").innerHTML = total.toFixed(2);
     }
 </script>
