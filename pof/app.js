@@ -36,6 +36,7 @@ app.use('/pay', pay);
 app.use('/survey', survey);
 app.use('/header', header);
 app.use('/k_index', k_index);
+app.use('/w_index', w_index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
