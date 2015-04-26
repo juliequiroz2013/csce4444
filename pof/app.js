@@ -10,7 +10,8 @@ var games = require('./routes/games');
 var pay = require('./routes/pay');
 var survey = require('./routes/survey');
 var header  = require('./routes/header');
-var k_index = require('./routes/k_index')
+var k_index = require('./routes/k_index');
+var w_index = require('./routes/w_index');
 
 var app = express();
 
