@@ -21,7 +21,7 @@
     <div class="col-md-4">
         <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
         <%= food.item %>
-        <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+        <input id="addtocart" type="button" value="add" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
         <ul>
             <li>Description: <%= food.categoryDescription %></li><br>
             <li>Calories: <%= food.calories %></li><br>
@@ -150,6 +150,7 @@
 </script>
 
 <script>total = total + tax;</script>
+            <h2>To comp item(s), enter the price of the item preceded by "-" in the box above</h2>
 <h2>Total: </h2>
 <h2 id = "totaled"><script> document.write(total.toFixed(2));</script></h2>
 </body>
