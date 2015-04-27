@@ -11,7 +11,11 @@ var pay = require('./routes/pay');
 var survey = require('./routes/survey');
 var header  = require('./routes/header');
 var k_index = require('./routes/k_index');
+<<<<<<< HEAD
 var win = require('./routes/win');
+=======
+var w_index = require('./routes/w_index');
+>>>>>>> origin/master
 
 var app = express();
 
@@ -36,7 +40,11 @@ app.use('/pay', pay);
 app.use('/survey', survey);
 app.use('/header', header);
 app.use('/k_index', k_index);
+<<<<<<< HEAD
 app.use('/win', win);
+=======
+app.use('/w_index', w_index);
+>>>>>>> origin/master
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

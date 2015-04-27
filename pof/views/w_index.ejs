@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+</body>
+
+<h1><%= title %></h1>
+<h2><input id="addtocart" type="button" value="Here?" onclick="heretogo('HERE')" />
+    or
+    <input id="addtocart" type="button" value="To-Go?" onclick="heretogo('TO GO')" /></h2>
+<h3>Appetizers</h3>
+<div class="row">
+    <% menuitems.Appetizers.forEach(function(food) { %>
+    <div class="col-md-4">
+        <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+        <%= food.item %>
+        <input id="addtocart" type="button" value="send to kitchen" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+        <ul>
+            <li>Description: <%= food.categoryDescription %></li><br>
+            <li>Calories: <%= food.calories %></li><br>
+            <li>Price: <%= food.price %></li><br>
+        </ul>
+    </div>
+    <% }); %>
+</div>
+
+<h3>Entrees</h3>
+<div class="row">
+    <% menuitems.Entrees.forEach(function(food) { %>
+    <div class="col-md-4">
+        <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+        <%= food.item %>
+        <input id="addtocart" type="button" value="Add" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+        <ul>
+            <li>Description: <%= food.categoryDescription %></li><br>
+            <li>Calories: <%= food.calories %></li><br>
+            <li>Price: <%= food.price %></li><br>
+        </ul>
+    </div>
+    <% }); %>
+</div>
+
+<h3>Kid Meals</h3>
+<div class="row">
+    <% menuitems.Kids.forEach(function(food) { %>
+    <div class="col-md-4">
+        <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+        <li><%= food.item %></li>
+        <input id="addtocart" type="button" value="Add" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+        <ul>
+            <li>Description: <%= food.categoryDescription %></li><br>
+            <li>Calories: <%= food.calories %></li><br>
+            <li>Price: <%= food.price %></li><br>
+        </ul>
+    </div>
+    <% }); %>
+</div>
+
+<h3>Desserts</h3>
+<div class="row">
+    <% menuitems.Desserts.forEach(function(food) { %>
+    <div class="col-md-4">
+        <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+        <li><%= food.item %></li>
+        <input id="addtocart" type="button" value="Add" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+        <ul>
+            <li>Description: <%= food.categoryDescription %></li><br>
+            <li>Calories: <%= food.calories %></li><br>
+            <li>Price: <%= food.price %></li><br>
+        </ul>
+    </div>
+    <% }); %>
+</div>
+
+<h3>Drinks</h3>
+<div class="row">
+    <% menuitems.Drinks.forEach(function(food) { %>
+    <div class="col-md-3">
+        <img src="/images/<%=food.item%>.png" alt="party of four food item" width="150">
+        <li><%= food.item %></li>
+        <% var today = new Date().getHours();%>
+        <% if(today >= 16 && today <= 19){ %>
+        <input id="addtocart" type="button" value="Add" onclick="addItem('<%=food.item %>', '<%= food.price/2 %>')" />
+        <% } else {%>
+        <input id="addtocart" type="button" value="Add" onclick="addItem('<%=food.item %>', '<%= food.price %>')" />
+        <% } %>
+        <ul>
+            <li>Calories: <%= food.calories %></li><br>
+            <% var today = new Date().getHours();%>
+            <% if(today >= 16 && today <= 19){ %>
+            <li>Price: <%= food.price/2 %></li><br>
+            <% } else {%>
+            <li>Price: <%= food.price %></li><br>
+            <% } %>
+        </ul>
+    </div>
+    <% }); %>
+</div>
+    <h3>Customer Cart<h3>
+</body>
+
+
+
+<script>var total = 0;</script>
+<h1><%=  %></h1>
+<% customerCart.cart.forEach(function(food) { %>
+<li><%= food.fooditem %></li>
+<ul><li>Price: <%= food.price %></li></ul><br>
+<script>total = total + <%-food.price%> </script>
+<% }); %>
+
+<h3>Subtotal: <script> document.write(total); </script></h3>
+<script>var tax = total * .0825;</script>
+<h4>Tax : <script> document.write(tax.toFixed(2)); </script></h4>
+
+
+<h4>Tip:
+    <button onclick="ten()">10%</button>
+    <button onclick="fifteen()">15%</button>
+    <button onclick="twenty()">20%</button>
+    <form>Enter amount:
+        <input type="number" id="tip" name="tip" min="0" step="any"/>
+        <input type="button" value="Submit" onClick="setTip(document.getElementById('tip').value)"/>
+    </form>
+</h4>
+<script>
+    function ten(){
+        total = (total*.1) + total;
+        document.getElementById("totaled").innerHTML = total.toFixed(2);
+    }
+    function fifteen(){
+        total = (total*.15) + total;
+        document.getElementById("totaled").innerHTML = total.toFixed(2);
+    }
+    function twenty(){
+        total = (total*.2) + total;
+        document.getElementById("totaled").innerHTML = total.toFixed(2);
+    }
+    function setTip(tip){
+        total = Number(tip) + total;
+        document.getElementById("totaled").innerHTML = total.toFixed(2);
+    }
+</script>
+
+<script>total = total + tax;</script>
+<h2>Total: </h2>
+<h2 id = "totaled"><script> document.write(total.toFixed(2));</script></h2>
+</body>
+</html>
