@@ -15,6 +15,9 @@
 <% include templates/header.ejs%>
 <script>var total = 0;</script>
 <h1><%= title %></h1>
+
+<h3><%= customerCart.where%></h3>
+<br><br>
 <% customerCart.cart.forEach(function(food) { %>
     <li><%= food.fooditem %></li>
     <ul><li>Price: <%= food.price %></li></ul><br>
