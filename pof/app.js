@@ -10,7 +10,8 @@ var games = require('./routes/games');
 var pay = require('./routes/pay');
 var survey = require('./routes/survey');
 var header  = require('./routes/header');
-var k_index = require('./routes/k_index')
+var k_index = require('./routes/k_index');
+var win = require('./routes/win');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/pay', pay);
 app.use('/survey', survey);
 app.use('/header', header);
 app.use('/k_index', k_index);
+app.use('/win', win);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

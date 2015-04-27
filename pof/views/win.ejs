@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+<% include templates/header.ejs%>
+<h1><%= title %></h1>
+<br><br><br><br>
+<div id="game" style="text-align: center">
+    <h3>Click on a button</h3>
+    <button onclick="option(1)">1</button>
+    <button onclick="option(2)">2</button>
+    <button onclick="option(3)">3</button>
+    <button onclick="option(4)">4</button>
+    <button onclick="option(5)">5</button>
+</div>
+
+<script>
+    function option(num){
+        var winner = Math.floor((Math.random() * 5) + 1);
+        if(winner == num){
+            document.getElementById("game").innerHTML = "<h3>YOU WON!</h3> <p>Show this to the waitstaff!</p>";
+        }
+        else{
+            document.getElementById("game").innerHTML = "<h3>You Lost</h3>";
+        }
+
+    }
+</script>
+</body>
+</html>

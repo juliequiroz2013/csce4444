@@ -10,7 +10,7 @@
 
 <% include templates/header.ejs%>
 <h1><%= title %></h1>
-
+<div id="survey">
 <form>
     <h3>Rate your visit to Party of Four:</h3>
     <input type="radio" name="rate" value="1" checked>1
@@ -48,5 +48,8 @@
     <input type="radio" name="rate" value="yes" checked>yes
     <input type="radio" name="rate" value="no">no
 </form>
+
+<input type="button" value="Submit" onClick="survey()"/>
+</div>
 </body>
 </html>

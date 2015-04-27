@@ -68,3 +68,8 @@ function assist() {
         }
     });
 }
+
+function survey(){
+    document.getElementById("survey").innerHTML = "Thank you for taking our survey!"
+
+}

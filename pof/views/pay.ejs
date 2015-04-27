@@ -52,10 +52,26 @@
         total = Number(tip) + total;
         document.getElementById("totaled").innerHTML = total.toFixed(2);
     }
+    function email(){
+        document.getElementById("receipt").innerHTML = '<form>Enter email:<input type=text> </input> <button onClick=emailed()>Submit</button></form>';
+    }
+    function emailed(){
+        document.getElementById("emailed").innerHTML = "Sent!";
+    }
+    function print(){
+        document.getElementById("receipt").innerHTML = "Printing...";
+    }
 </script>
 
 <script>total = total + tax;</script>
 <h2>Total: </h2>
 <h2 id = "totaled"><script> document.write(total.toFixed(2));</script></h2>
+<br><br>
+<h4>Printed or emailed receipt?</h4>
+<button onclick="email()">Email</button>
+<button onclick="print()">Printed</button>
+
+<h3 id = "receipt"></h3>
+<h3 id = "emailed"></h3>
 </body>
 </html>
