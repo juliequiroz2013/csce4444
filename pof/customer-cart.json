@@ -26,6 +26,38 @@
     {
       "fooditem": "Chips & Salsa",
       "price": "5"
+    },
+    {
+      "fooditem": "Chips & Salsa",
+      "price": "5"
+    },
+    {
+      "fooditem": "Pepperoni Pizza",
+      "price": "5"
+    },
+    {
+      "fooditem": "Water",
+      "price": "0"
+    },
+    {
+      "fooditem": "Water",
+      "price": "0"
+    },
+    {
+      "fooditem": "Water",
+      "price": "0"
+    },
+    {
+      "fooditem": "Water",
+      "price": "0"
+    },
+    {
+      "fooditem": "Water",
+      "price": "0"
+    },
+    {
+      "fooditem": "Cheesecake",
+      "price": "5"
     }
   ]
 }

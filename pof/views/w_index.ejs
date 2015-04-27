@@ -6,7 +6,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
+    <script src='./javascripts/menu.js' type="text/javascript"></script>
+    <script>
+        //So Now You can access the menuitems you send to this page in your pages javascript to run functions ect...
+        var menuitems = <%- JSON.stringify(menuitems) %>;
+        var customerCart = <%- JSON.stringify(customerCart) %>;
+        //Also included is now you have access to menu.js from public
+    </script>
 
 
 </body>
